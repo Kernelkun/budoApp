@@ -1,0 +1,32 @@
+[
+    {
+        "id": "1",
+        "title-jp": "裸絞",
+        "title": "Hadaka Jime",
+        "translated": [
+            {
+                "name": "Hadaka",
+                "translation": "Mano"
+            },
+            {
+                "name": "Jime",
+                "translation": "Desnuda"
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "title-jp": "体落",
+        "title": "Tai Otoshi",
+        "translated": [
+            {
+                "name": "Tai",
+                "translation": "Cuerpo"
+            },
+            {
+                "name": "Otoshi",
+                "translation": "Caída"
+            }
+        ]
+    }
+]

@@ -1,0 +1,22 @@
+page-home {
+
+}
+
+.container {
+  position: relative;
+  width : 200px;
+  height: 200px;
+  border: 5px solid #CCC;
+  border-radius: 10px;
+  perspective: 800px;
+  transform-style: preserve-3d;
+}
+
+.card {
+  position: absolute;
+  top   : 50px;
+  left  : 50px;
+  width : 100px;
+  height: 100px;
+  background: linear-gradient(to bottom, rgba(255,53,22,1) 0%,rgba(244,132,192,1) 100%);
+}
