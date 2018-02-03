@@ -1,4 +1,5 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
+// import { ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 @Component({
@@ -12,7 +13,8 @@ export class HomePage {
   maxY;
   maxX;
 
-  constructor(public navCtrl: NavController, private elRef: ElementRef) {
+  constructor(public navCtrl: NavController) {
+  // constructor(public navCtrl: NavController, private elRef: ElementRef) {
 
   }
 
