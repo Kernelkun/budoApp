@@ -22,14 +22,16 @@ export class HomePage {
   }
 
   ngAfterViewInit() {
-    this.ball = this.elRef.nativeElement.querySelector('.card');
-    this.garden = this.elRef.nativeElement.querySelector('.container');
-    this.output = this.elRef.nativeElement.querySelector('.output');
+    // this.ball = this.elRef.nativeElement.querySelector('.card');
+    // this.garden = this.elRef.nativeElement.querySelector('.container');
+    // this.output = this.elRef.nativeElement.querySelector('.output');
 
-    this.maxX = this.garden.clientWidth - this.ball.clientWidth;
-    this.maxY = this.garden.clientHeight - this.ball.clientHeight;
+    // this.maxX = this.garden.clientWidth - this.ball.clientWidth;
+    // this.maxY = this.garden.clientHeight - this.ball.clientHeight;
   }
 
+  // Esto es para animar un objeto HTML con el acelerómetro.
+  // En codepen funciona, en ionic aún no lo he conseguido.
   handleOrientation(event) {
     var x = event.beta;  // In degree in the range [-180,180]
     var y = event.gamma; // In degree in the range [-90,90]

@@ -1,7 +1,4 @@
-page-home {
-
-}
-
+// Relacionado con el movimiento del div usando el giroscopio.
 .container {
   position: relative;
   width : 200px;
@@ -19,4 +16,26 @@ page-home {
   width : 100px;
   height: 100px;
   background: linear-gradient(to bottom, rgba(255,53,22,1) 0%,rgba(244,132,192,1) 100%);
+}
+// Fin del giroscopio.
+
+.budo-logo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.budo-logo > img {
+  width: 35%;
+}
+
+.budo-welcome {
+  width: 100%;
+  margin-top: 15%;
+}
+
+.budo-welcome > p {
+  text-align: center;
 }
