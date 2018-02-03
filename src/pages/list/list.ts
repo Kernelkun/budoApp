@@ -15,10 +15,6 @@ export class ListPage {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
-    // Let's populate this page with some filler content for funzies
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
-
     this.techniques = [
       { "name": "O Soto Otoshi", "description": "Es una de las proyecciones de habukareta-waza de judo. Pertenece al cuarto grupo (Yonkyo) de los movimientos del kodokan judo en el Gokyo no waza, y es clasificada como técnica de pierna o ashiwaza.", "kanji": "大外落", "icon": "remove", "color": "yellow" },
       { "name": "Uki Goshi", "description": "Es una de las técnicas de Judo cadera(Koshi - Waza) originales desarrolladas por Jigoro Kano.Consiste en atraer a Uke con un brazo hacia un punto de la cadera de Tori para contactar y pivotar sobre ésta, posteriormente Tori tira del brazo de Uke en torsión para proyectarle.", "kanji": "浮腰", "icon": "remove", "color": "yellow" },
@@ -28,15 +24,6 @@ export class ListPage {
       { "name": "Yoko", "description": "Control sobre cuatro puntos por el costado. Es una de las inmovilizaciones (Osaekomi-waza) fundamentales en Judo suelo.", "kanji": "横四方固め", "icon": "remove", "color": "yellow" },
       { "name": "Tate", "description": "Significa control sobre cuatro puntos a horcajadas. Es una técnica de Judo de osaekomi-waza y es una de las más difíciles para escapar.", "kanji": "縦四方固", "icon": "remove", "color": "yellow" }
     ];
-
-    // this.items = [];
-    // for (let i = 1; i < 11; i++) {
-    //   this.items.push({
-    //     title: 'Item ' + i,
-    //     note: 'This is item #' + i,
-    //     icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-    //   });
-    // }
   }
 
   itemTapped(event, item) {
