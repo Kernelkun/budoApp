@@ -24,7 +24,30 @@ export class TechniqueProvider {
       this.techniques[key].forEach(element => {
         arrayTechniques.push(element);
       });
-      // arrayTechniques.push(this.techniques[key]);
+    });
+
+    return arrayTechniques;
+  }
+
+  getBelts() {
+    const arrayBelts = [];
+
+    Object.keys(this.techniques).forEach(key => {
+      arrayBelts.push(key);
+    });
+
+    return arrayBelts;
+  }
+
+  getTechniquesByBelt(color: string) {
+    const arrayTechniques = [];
+
+    Object.keys(this.techniques).forEach(key => {
+      if (key === color) {
+        this.techniques[key].forEach(element => {
+          arrayTechniques.push(element);
+        });
+      }
     });
 
     return arrayTechniques;
