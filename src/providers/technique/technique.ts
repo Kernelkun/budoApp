@@ -16,7 +16,7 @@ export class TechniqueProvider {
   constructor(public http: HttpClient, private data: DataProvider) {
     console.log('Hello TechniqueProvider Provider');
 
-    this.techniques = data.techniques;
+    this.techniques = data.getData();
   }
 
   getTechniques() {

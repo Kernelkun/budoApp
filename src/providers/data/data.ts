@@ -34,4 +34,8 @@ export class DataProvider {
     console.log('Hello DataProvider Provider');
   }
 
+  getData() {
+    return this.techniques;
+  }
+
 }
