@@ -14,6 +14,7 @@ import { TechniquePage } from '../pages/technique/technique';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TechniqueProvider } from '../providers/technique/technique';
+import { DataProvider } from '../providers/data/data';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { TechniqueProvider } from '../providers/technique/technique';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    TechniqueProvider
+    TechniqueProvider,
+    DataProvider
   ]
 })
 export class AppModule {}
