@@ -13,9 +13,7 @@ export class TechniqueProvider {
   techniques;
   // techniques: Array<{ name: string, description: string, kanji: string, icon: string, belt: string, translated: string }>;
 
-  constructor(public http: HttpClient, private data: DataProvider) {
-    console.log('Hello TechniqueProvider Provider');
-
+  constructor(public http: HttpClient, data: DataProvider) {
     this.techniques = data.getData();
   }
 
