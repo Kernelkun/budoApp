@@ -30,9 +30,7 @@ export class DataProvider {
     ]
   };
 
-  constructor(public http: HttpClient) {
-    console.log('Hello DataProvider Provider');
-  }
+  constructor(public http: HttpClient) {}
 
   getData() {
     return this.techniques;

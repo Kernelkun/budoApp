@@ -15,6 +15,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TechniqueProvider } from '../providers/technique/technique';
 import { DataProvider } from '../providers/data/data';
+import { SearchPipe } from '../pipes/search/search';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DataProvider } from '../providers/data/data';
     TabsPage,
     SearchPage,
     BeltsPage,
-    TechniquePage
+    TechniquePage,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

@@ -5,11 +5,14 @@
     </button>
     <ion-title>List</ion-title>
   </ion-navbar>
+  <ion-searchbar [(ngModel)]="myInput">
+  </ion-searchbar>
 </ion-header>
+
 
 <ion-content>
   <ion-list>
-    <button ion-item *ngFor="let item of techniques" (click)="itemTapped($event, item)">
+    <button ion-item *ngFor="let item of techniques | search : myInput" (click)="itemTapped($event, item)">
       <ion-icon name="{{item.icon}}" item-start></ion-icon>
       {{item.name}}
       <div class="item-note" item-end>

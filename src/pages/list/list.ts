@@ -12,6 +12,7 @@ export class ListPage {
   icons: string[];
   items: Array<{ title: string, note: string, icon: string }>;
   techniques: Array<Object>;
+  myInput;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public _technique: TechniqueProvider) {
     // If we navigated to this page, we will have an item available as a nav param
@@ -30,5 +31,13 @@ export class ListPage {
     this.navCtrl.push(TechniquePage, {
       item: item
     });
+  }
+
+  onInput(event) {
+    console.log(event);
+  }
+  
+  onCancel(event) {
+    console.log(event);
   }
 }
