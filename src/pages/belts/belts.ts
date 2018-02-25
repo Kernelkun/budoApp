@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { TechniquePage } from '../technique/technique';
 import { TechniqueProvider } from '../../providers/technique/technique';
 import { ListPage } from '../list/list';
 

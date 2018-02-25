@@ -7,7 +7,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { TabsPage } from '../pages/tabs/tabs';
-import { SearchPage } from '../pages/search/search';
+// import { SearchPage } from '../pages/search/search';
 import { BeltsPage } from '../pages/belts/belts';
 import { TechniquePage } from '../pages/technique/technique';
 
@@ -23,7 +23,7 @@ import { SearchPipe } from '../pipes/search/search';
     HomePage,
     ListPage,
     TabsPage,
-    SearchPage,
+    // SearchPage,
     BeltsPage,
     TechniquePage,
     SearchPipe
@@ -39,7 +39,7 @@ import { SearchPipe } from '../pipes/search/search';
     HomePage,
     ListPage,
     TabsPage,
-    SearchPage,
+    // SearchPage,
     BeltsPage,
     TechniquePage
   ],
