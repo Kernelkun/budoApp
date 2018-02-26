@@ -14,6 +14,9 @@ export class ListPage {
   techniques: Array<Object>;
   myInput;
 
+  order: number = 1;
+  column: string = 'name';
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public _technique: TechniqueProvider) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');

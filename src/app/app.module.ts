@@ -16,6 +16,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TechniqueProvider } from '../providers/technique/technique';
 import { DataProvider } from '../providers/data/data';
 import { SearchPipe } from '../pipes/search/search';
+import { SortPipe } from '../pipes/sort/sort';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SearchPipe } from '../pipes/search/search';
     // SearchPage,
     BeltsPage,
     TechniquePage,
-    SearchPipe
+    SearchPipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,
