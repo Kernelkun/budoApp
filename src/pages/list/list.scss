@@ -9,3 +9,12 @@ page-list {
 .border-orange {
     border-left: 15px solid rgb(255, 177, 59);
 }
+
+ion-title {
+    text-align: center;
+}
+
+ion-buttons > button {
+    min-width: 44px;
+    text-align: center;
+}

@@ -14,7 +14,7 @@ import { BeltsPage } from '../pages/belts/belts';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = ListPage;
   // rootPage: any = TabsPage;
 
   pages: Array<{title: string, component: any}>;
@@ -24,9 +24,7 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
-      { title: 'Belts', component: BeltsPage }
+      { title: 'Técnicas', component: ListPage }
     ];
 
   }
