@@ -32,8 +32,21 @@ ion-header {
 .searchbar-md {
     background: transparent;
     padding: 12% 10% 3% 10%;
+    // padding: 40px 10% 3% 10%;
+    // background: linear-gradient(to bottom, transparent 60px,#ffffff 0%,#fff 100%);
 }
 
 .bar-button-default-md, .toolbar-title-md {
     color: white;
 }
+
+.list-md .item-block .item-inner {
+    border-bottom: none;
+}
+
+.yellow { color:yellow; }
+.orange { color:orange; }
+.green { color:green; }
+.blue { color:blue; }
+.brown { color:brown; }
+.black { color:black; }
