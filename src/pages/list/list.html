@@ -6,7 +6,7 @@
     <ion-title>Budo App</ion-title>
     <ion-buttons end>
       <button ion-button icon-only>
-        <ion-icon name="more"></ion-icon>
+        <ion-icon name="funnel"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -15,7 +15,7 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content class="base">
   <ion-list>
     <button ion-item *ngFor="let item of techniques | search : myInput | sort: {property: column, order: order}" (click)="itemTapped($event, item)">
       <ion-icon [ngClass]="item.belt" name="{{item.icon}}" item-start></ion-icon>

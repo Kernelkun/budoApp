@@ -32,3 +32,39 @@
 .navbar-title-text > div {
     color: white;
 }
+
+ion-header {
+    background-image: url("../assets/imgs/header.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+ion-menu ion-header {
+    background-image: url("../assets/imgs/header-40.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+ion-menu ion-header {
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+ion-menu ion-header .navbar-title-text {
+    background-color: transparent;
+}
+
+ion-menu ion-header .navbar-title-text > div {
+    font-size: 3em;
+}
+
+ion-menu ion-header .item-block {
+    border-bottom: 1px solid #dedede;
+}
+
+ion-menu ion-list .item-md {
+    padding: 5% 10%;
+    border-bottom: 1px solid #dedede;
+}
