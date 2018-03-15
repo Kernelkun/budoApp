@@ -15,6 +15,7 @@ import { ViewController } from 'ionic-angular';
   templateUrl: 'filter.html',
 })
 export class FilterPage {
+  items = ["1","2","3","4","5","6","7","8","9","10"];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }

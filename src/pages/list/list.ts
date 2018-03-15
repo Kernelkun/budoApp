@@ -47,7 +47,6 @@ export class ListPage {
   }
 
   public openModal() {
-    console.log("MEOW");
     var data = { message: 'hello world' };
     var modalPage = this.modalCtrl.create(FilterPage, data);
     modalPage.present();

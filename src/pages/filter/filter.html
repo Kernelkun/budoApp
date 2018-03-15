@@ -19,5 +19,22 @@
 
 
 <ion-content padding>
-
+  <ion-item>
+    <ion-label>Cinturones</ion-label>
+    <ion-select [(ngModel)]="belts">
+      <ion-option>Amarillo</ion-option>
+      <ion-option>Naranja</ion-option>
+      <ion-option>Verde</ion-option>
+      <ion-option>Azul</ion-option>
+      <ion-option>Marrón</ion-option>
+      <ion-option>Negro</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Orden</ion-label>
+    <ion-select [(ngModel)]="order">
+      <ion-option>A-Z</ion-option>
+      <ion-option>Z-A</ion-option>
+    </ion-select>
+  </ion-item>
 </ion-content>
