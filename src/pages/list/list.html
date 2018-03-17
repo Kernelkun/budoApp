@@ -5,7 +5,7 @@
     </button>
     <ion-title>Budo App</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only>
+      <button ion-button icon-only  (click)="openModal()">
         <ion-icon name="funnel"></ion-icon>
       </button>
     </ion-buttons>
@@ -17,7 +17,7 @@
 
 <ion-content class="base">
   <ion-list>
-    <button ion-item *ngFor="let item of techniques | search : myInput | sort: {property: column, order: order}" (click)="itemTapped($event, item)">
+    <button ion-item *ngFor="let item of techniques | search: myInput| belt: belt | sort: {property: column, order: order} " (click)="itemTapped($event, item)">
       <ion-icon [ngClass]="item.belt" name="{{item.icon}}" item-start></ion-icon>
       {{item.name}}
       <div class="item-note">

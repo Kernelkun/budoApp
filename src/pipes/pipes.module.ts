@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { SearchPipe } from './search/search';
 import { SortPipe } from './sort/sort';
+import { BeltPipe } from './belt/belt';
 @NgModule({
 	declarations: [SearchPipe,
-    SortPipe],
+    SortPipe,
+    BeltPipe],
 	imports: [],
 	exports: [SearchPipe,
-    SortPipe]
+    SortPipe,
+    BeltPipe]
 })
 export class PipesModule {}
