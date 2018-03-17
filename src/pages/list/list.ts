@@ -59,10 +59,10 @@ export class ListPage {
     // var modalPage = this.modalCtrl.create(FilterPage, data);
     var modalPage = this.modalCtrl.create(FilterPage);
     modalPage.onDidDismiss(data => {
-      console.log(data);
+      // console.log(data);
       
       this.order = parseInt(data.order, 10);
-      console.log(this.order);
+      // console.log(this.order);
       this._filterData.setOrder(this.order);
 
       this.belt = data.belt;

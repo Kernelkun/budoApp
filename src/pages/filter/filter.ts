@@ -32,7 +32,7 @@ export class FilterPage {
   }
 
   public closeModal() {
-    console.log(this.order);
+    // console.log(this.order);
     var order = (typeof this.order == 'string' ? parseInt(this.order, 10) : this.order);
     var data = { order: order, belt: this.belt};
     this.viewCtrl.dismiss(data);
