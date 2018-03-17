@@ -1,7 +1,10 @@
 BUG CONOCIDOS:
 
-+ [CSS] Cuando hay menos elementos en la lista, estos tienen demasiado espacio porque están raprtiéndolo.
++ #001 - [CSS] Cuando hay menos elementos en la lista, estos tienen demasiado espacio porque están raprtiéndolo.
         Hay que encontrar otra forma de darles espacio entre ellos, el método actual no es válido.
 
-+ [TS] Cuando se filtra por cinturón, el "sort" deja de funcionar cuando cambia. Funciona con la última selección que se
+
+SOLUCIONADO:
+
++ #002 - [TS] Cuando se filtra por cinturón, el "sort" deja de funcionar cuando cambia. Funciona con la última selección que se
        le hizo antes de elegir el cinturón. La variable se cambia, pero no funciona el orden.
