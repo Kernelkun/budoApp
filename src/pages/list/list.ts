@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { TechniquePage } from '../technique/technique';
 import { TechniqueProvider } from '../../providers/technique/technique';
+import { FilterDataProvider } from '../../providers/filter-data/filter-data';
 import { ModalController } from 'ionic-angular';
 import { FilterPage } from '../filter/filter';
 
@@ -16,10 +17,17 @@ export class ListPage {
   techniques: Array<Object>;
   myInput;
 
-  order: number = 1;
-  column: string = 'name';
+  belt;
+  order;
+  column;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public _technique: TechniqueProvider, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    public _technique: TechniqueProvider, public modalCtrl: ModalController, public _filterData: FilterDataProvider) {
+    
+      // We get the actual filter data.
+    this.order = _filterData.getOrder();
+    this.column = _filterData.getColum();
+
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
@@ -47,8 +55,19 @@ export class ListPage {
   }
 
   public openModal() {
-    var data = { message: 'hello world' };
-    var modalPage = this.modalCtrl.create(FilterPage, data);
+    // var data = { message: 'hello world' };
+    // var modalPage = this.modalCtrl.create(FilterPage, data);
+    var modalPage = this.modalCtrl.create(FilterPage);
+    modalPage.onDidDismiss(data => {
+      console.log(data);
+      
+      this.order = parseInt(data.order, 10);
+      console.log(this.order);
+      this._filterData.setOrder(this.order);
+
+      this.belt = data.belt;
+      this._filterData.setBelt(this.belt);
+    });
     modalPage.present();
-  }  
+  }
 }

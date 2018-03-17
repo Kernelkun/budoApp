@@ -18,6 +18,8 @@ import { TechniqueProvider } from '../providers/technique/technique';
 import { DataProvider } from '../providers/data/data';
 import { SearchPipe } from '../pipes/search/search';
 import { SortPipe } from '../pipes/sort/sort';
+import { BeltPipe } from '../pipes/belt/belt';
+import { FilterDataProvider } from '../providers/filter-data/filter-data';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { SortPipe } from '../pipes/sort/sort';
     TechniquePage,
     SearchPipe,
     FilterPage,
-    SortPipe
+    SortPipe,
+    BeltPipe
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ import { SortPipe } from '../pipes/sort/sort';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     TechniqueProvider,
-    DataProvider
+    DataProvider,
+    FilterDataProvider
   ]
 })
 export class AppModule {}

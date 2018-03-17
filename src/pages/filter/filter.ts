@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ViewController } from 'ionic-angular';
+import { FilterDataProvider } from '../../providers/filter-data/filter-data';
 
 /**
  * Generated class for the FilterPage page.
@@ -15,18 +16,25 @@ import { ViewController } from 'ionic-angular';
   templateUrl: 'filter.html',
 })
 export class FilterPage {
-  items = ["1","2","3","4","5","6","7","8","9","10"];
+  // items = ["1","2","3","4","5","6","7","8","9","10"];
+  belt: string;
+  order: number;
+  // column;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public _filterData: FilterDataProvider) {
+    // We get the actual filter data.
+    this.order = _filterData.getOrder();
+    this.belt = _filterData.getBelt();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FilterPage');
-    console.log(this.navParams.get('message'));
+    // console.log(this.navParams.get('message'));
   }
 
   public closeModal() {
-    this.viewCtrl.dismiss();
+    console.log(this.order);
+    var order = (typeof this.order == 'string' ? parseInt(this.order, 10) : this.order);
+    var data = { order: order, belt: this.belt};
+    this.viewCtrl.dismiss(data);
   }
-
 }
