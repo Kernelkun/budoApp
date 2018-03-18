@@ -2,23 +2,40 @@ page-technique {
 
 }
 
+page-technique > ion-header {
+    width:500px;
+    height:200px;
+    overflow: hidden;
+}
+
+page-technique > ion-header::before {
+    border-radius: 100%;
+    position: absolute;
+    background: white;
+    right: 15%;
+    left: -13%;
+    top: 70%;
+    content: '';
+    bottom: -50%;
+}
+
 ion-app.md [padding] .scroll-content {
     padding: 0;
 }
 
 .technique-title {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
 }
 
 .technique-title > p {
-  width: 75%;
-  text-align: center;
-  margin: 0;
+    width: 75%;
+    text-align: center;
+    margin: 0;
 }
 
 .technique-title > h1 {
