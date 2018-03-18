@@ -5,10 +5,14 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
+<div class="shade"></div>
   <ion-navbar>
-    <ion-title>{{technique.name}}</ion-title>
   </ion-navbar>
+  
+  <ion-title>
+    <p>{{technique.name}}</p>
+    <p>{{technique.waza}}</p>
+  </ion-title>
 
 </ion-header>
 
@@ -16,14 +20,27 @@
 <ion-content padding>
   <div class="technique-title">
     <h1>{{technique.kanji}}</h1>
-    <p>{{technique.name}}</p>
-  </div>
-
-  <div class="translated-band border-{{technique.belt}}">
-    <p>{{technique.translated}}</p>
+    <div class="info-box">
+      <div class="info-header">
+        <ion-icon name="information-circle"></ion-icon>
+        <span>Traducción:</span>
+      </div>
+      <div class="info-translated">
+        <p *ngFor="let line of technique.translated">{{line}}</p>
+      </div>
+    </div>
   </div>
 
   <div class="technique-description">
+    <h1>Descripción</h1>
     <p>{{technique.description}}</p>
+  </div>
+
+  <div class="technique-videos">
+    <h1>Vídeos</h1>
+    <!-- <p>{{technique.description}}</p> -->
+    <!-- <p *ngFor="let video of technique.videos">{{video}}</p> -->
+    <iframe *ngFor="let video of technique.videos" width="100%" height="315" [src]="video | safeUrl" frameborder="0" allow="autoplay; encrypted-media"
+      allowfullscreen></iframe>
   </div>
 </ion-content>

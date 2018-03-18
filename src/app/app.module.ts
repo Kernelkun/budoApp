@@ -10,6 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 // import { SearchPage } from '../pages/search/search';
 import { BeltsPage } from '../pages/belts/belts';
 import { TechniquePage } from '../pages/technique/technique';
+import { FilterPage } from '../pages/filter/filter';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -17,6 +18,9 @@ import { TechniqueProvider } from '../providers/technique/technique';
 import { DataProvider } from '../providers/data/data';
 import { SearchPipe } from '../pipes/search/search';
 import { SortPipe } from '../pipes/sort/sort';
+import { BeltPipe } from '../pipes/belt/belt';
+import { SafeUrlPipe } from '../pipes/safe-url/safe-url';
+import { FilterDataProvider } from '../providers/filter-data/filter-data';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,10 @@ import { SortPipe } from '../pipes/sort/sort';
     BeltsPage,
     TechniquePage,
     SearchPipe,
-    SortPipe
+    FilterPage,
+    SortPipe,
+    BeltPipe,
+    SafeUrlPipe
   ],
   imports: [
     BrowserModule,
@@ -42,6 +49,7 @@ import { SortPipe } from '../pipes/sort/sort';
     ListPage,
     TabsPage,
     // SearchPage,
+    FilterPage,
     BeltsPage,
     TechniquePage
   ],
@@ -50,7 +58,8 @@ import { SortPipe } from '../pipes/sort/sort';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     TechniqueProvider,
-    DataProvider
+    DataProvider,
+    FilterDataProvider
   ]
 })
 export class AppModule {}

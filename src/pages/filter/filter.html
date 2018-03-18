@@ -1,0 +1,41 @@
+<!--
+  Generated template for the FilterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Filtros</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Cinturones</ion-label>
+    <ion-select [(ngModel)]="belt">
+      <ion-option value="">Todos</ion-option>
+      <ion-option value="yellow">Amarillo</ion-option>
+      <ion-option value="orange">Naranja</ion-option>
+      <ion-option value="green">Verde</ion-option>
+      <ion-option value="blue">Azul</ion-option>
+      <ion-option value="brown">Marrón</ion-option>
+      <ion-option value="black">Negro</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Orden</ion-label>
+    <ion-select [(ngModel)]="order">
+      <ion-option value="1">A-Z</ion-option>
+      <ion-option value="-1">Z-A</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-content>

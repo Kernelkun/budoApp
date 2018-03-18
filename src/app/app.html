@@ -1,7 +1,6 @@
 <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar>
-      <img src="assets/imgs/jiu-jitsu/jiu-jitsu-1.jpg" class="menu-background" alt="menu background">
       <ion-title class="navbar-title-text">Jiu-Jitsu</ion-title>
     </ion-toolbar>
   </ion-header>
@@ -9,6 +8,7 @@
   <ion-content>
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon name="list" item-start></ion-icon>
         {{p.title}}
       </button>
     </ion-list>
