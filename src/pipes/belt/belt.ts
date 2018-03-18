@@ -13,7 +13,6 @@ export class BeltPipe implements PipeTransform {
    * Takes a value and makes it lowercase.
    */
   transform(items: any[], terms: string): any[] {
-    console.log('belt: ',items);
     if (!items) return [];
     if (!terms) return items;
     terms = terms.toString().toLowerCase();
