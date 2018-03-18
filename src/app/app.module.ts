@@ -19,6 +19,7 @@ import { DataProvider } from '../providers/data/data';
 import { SearchPipe } from '../pipes/search/search';
 import { SortPipe } from '../pipes/sort/sort';
 import { BeltPipe } from '../pipes/belt/belt';
+import { SafeUrlPipe } from '../pipes/safe-url/safe-url';
 import { FilterDataProvider } from '../providers/filter-data/filter-data';
 
 @NgModule({
@@ -33,7 +34,8 @@ import { FilterDataProvider } from '../providers/filter-data/filter-data';
     SearchPipe,
     FilterPage,
     SortPipe,
-    BeltPipe
+    BeltPipe,
+    SafeUrlPipe
   ],
   imports: [
     BrowserModule,

@@ -56,6 +56,7 @@ ion-app.md [padding] .scroll-content {
     h1 {
         font-size: 2em;
         color: rgba(100,100,100,80);
+        margin-bottom: 0.8em;
     }
 }
 
@@ -82,4 +83,8 @@ ion-app.md [padding] .scroll-content {
     background-color: #E3F2FD;
     height: 200px;
     padding: 10%;
+}
+
+.technique-videos > iframe {
+    margin-bottom: 10%;
 }
