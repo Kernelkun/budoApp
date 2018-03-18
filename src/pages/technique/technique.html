@@ -20,11 +20,13 @@
 <ion-content padding>
   <div class="technique-title">
     <h1>{{technique.kanji}}</h1>
-    <p>{{technique.name}}</p>
-  </div>
-
-  <div class="translated-band border-{{technique.belt}}">
-    <p>{{technique.translated}}</p>
+    <div class="info-box">
+      <div class="info-header">
+        <ion-icon name="information-circle"></ion-icon>
+        <span>Traducción:</span>
+      </div>
+      <p *ngFor="let line of technique.translated">{{line}}</p>
+    </div>
   </div>
 
   <div class="technique-description">
