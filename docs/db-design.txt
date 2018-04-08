@@ -1,16 +1,16 @@
-La estructura que queremos evitar ser韆 la siguiente:
+La estructura que queremos evitar ser谩 la siguiente:
 
 {
 	"jiu-jitsu tradicional": {
 		"federaciones": {
-			"Federaci髇 Nacional": {
+			"Federaci贸n Nacional": {
 				"Cinturones": {
 					"Amarillo": {
-						"T閏nicas": {
+						"T茅cnicas": {
 							"Kesa": {
 								"Nombre": "",
 								"Kanji": "",
-								"Descripci髇": ""
+								"Descripci贸n": ""
 							},
 							"Kami": {},
 							"Tate": {}
@@ -21,46 +21,46 @@ La estructura que queremos evitar ser韆 la siguiente:
 				}
 			},
 			"Federacion bla bla bla": {},
-			"Federaci髇 tres": {},
+			"Federaci贸n tres": {},
 			"noFederation": {}
 		}
 	},
 	"jiu-jitsu brazilian": {}
 }
 
-La anidaci髇 dar韆 resultados terribles si quisieramos sacar, por ejemplo, una lista de las federaciones
-debido a que traer韆 consigo los datos de los hijos de todas las federaciones.
+La anidaci贸n dar谩 resultados terribles si quisieramos sacar, por ejemplo, una lista de las federaciones
+debido a que traer谩 consigo los datos de los hijos de todas las federaciones.
 
 
 Estructura de la base de datos no normalizada:
 
 {
-	"artes marciales": {
+	"martial arts": {
 		"jiu-jitsu tradicional": {
-			"descripci髇": "",
-			"fundaci髇": "",
+			"descripci贸n": "",
+			"fundaci贸n": "",
 			"historia": ""
 		}
 	},
-	"federaciones": {
+	"federations": {
 		"jiu-jitsu tradicional": {
-			"Federaci髇 Nacional": true,
-			"Federaci髇 2": true,
-			"Federaci髇 3": true
+			"Federaci贸n Nacional": true,
+			"Federaci贸n 2": true,
+			"Federaci贸n 3": true
 		}
 	},
-	"Cinturones": {
+	"belts": {
 		"jiu-jitsu tradicional": {
-			"Federaci髇 Nacional": {
+			"Federaci贸n Nacional": {
 				"Amarillo": true,
 				"Naranja": true,
 				"Verde": true
 			}
 		}
 	},
-	"T閏nicas": {
+	"techniques": {
 		"jiu-jitsu tradicional": {
-			"Federaci髇 Nacional": {
+			"Federaci贸n Nacional": {
 				"Amarillo": {
 					"Kesa": true,
 					"Kami": true,
@@ -71,14 +71,14 @@ Estructura de la base de datos no normalizada:
 			}
 		}
 	},
-	"T閏nica": {
+	"technique": {
 		"jiu-jitsu tradicional": {
-			"Federaci髇 Nacional": {
+			"Federaci贸n Nacional": {
 				"Amarillo": {
 					"Kesa": {
 						"Nombre": "",
 						"Kanji": "",
-						"Descripci髇": ""
+						"Descripci贸n": ""
 					},
 					"Kami": {},
 					"Tate": {}
@@ -90,3 +90,6 @@ Estructura de la base de datos no normalizada:
 		}
 	}
 }
+
+P谩gina de refencia en cuanto a la ordenaci贸n por clave, valor y clave secundaria:
+https://firebase.google.com/docs/database/rest/retrieve-data?hl=es-419#section-rest-filtering
