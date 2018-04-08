@@ -22,6 +22,19 @@ import { BeltPipe } from '../pipes/belt/belt';
 import { SafeUrlPipe } from '../pipes/safe-url/safe-url';
 import { FilterDataProvider } from '../providers/filter-data/filter-data';
 
+/* Firebase */
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCgFoiud3xz6SNr_XXBi__MhJf9vECTj_Y",
+  authDomain: "budoapp-a0573.firebaseapp.com",
+  databaseURL: "https://budoapp-a0573.firebaseio.com",
+  projectId: "budoapp-a0573",
+  storageBucket: "budoapp-a0573.appspot.com",
+  messagingSenderId: "394415637197"
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -41,6 +54,8 @@ import { FilterDataProvider } from '../providers/filter-data/filter-data';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
+    AngularFireModule.initializeApp(firebaseConfig, 'budoapp'),
+    AngularFireDatabaseModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

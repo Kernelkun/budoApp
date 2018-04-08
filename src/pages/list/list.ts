@@ -5,6 +5,9 @@ import { TechniqueProvider } from '../../providers/technique/technique';
 import { FilterDataProvider } from '../../providers/filter-data/filter-data';
 import { ModalController } from 'ionic-angular';
 import { FilterPage } from '../filter/filter';
+/* Firebase */
+import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'page-list',
@@ -21,10 +24,19 @@ export class ListPage {
   order;
   column;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
-    public _technique: TechniqueProvider, public modalCtrl: ModalController, public _filterData: FilterDataProvider) {
+  /* Firebase */
+  tasksRef: AngularFireList<any>;
+  tasks: Observable<any[]>;
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public _technique: TechniqueProvider,
+    public modalCtrl: ModalController,
+    public _filterData: FilterDataProvider,
+    public database: AngularFireDatabase) {
     
-      // We get the actual filter data.
+    // We get the actual filter data.
     this.order = _filterData.getOrder();
     this.column = _filterData.getColum();
 
@@ -37,6 +49,14 @@ export class ListPage {
     } else {
       this.techniques = _technique.getTechniques();
     }
+
+    /* Firebase */
+    this.tasksRef = this.database.list('belts/jiu-jitsu tradicional/Federación Nacional');
+    this.tasks = this.tasksRef.snapshotChanges()
+    .map(changes => {
+      console.log(changes.map(c => ({ key: c.payload.key, ...c.payload.val() })));
+      return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+    });
   }
 
   itemTapped(event, itemClicked) {
