@@ -1,0 +1,92 @@
+La estructura que queremos evitar sería la siguiente:
+
+{
+	"jiu-jitsu tradicional": {
+		"federaciones": {
+			"Federación Nacional": {
+				"Cinturones": {
+					"Amarillo": {
+						"Técnicas": {
+							"Kesa": {
+								"Nombre": "",
+								"Kanji": "",
+								"Descripción": ""
+							},
+							"Kami": {},
+							"Tate": {}
+						}
+					},
+					"Naranja": {},
+					"Verde": {}
+				}
+			},
+			"Federacion bla bla bla": {},
+			"Federación tres": {},
+			"noFederation": {}
+		}
+	},
+	"jiu-jitsu brazilian": {}
+}
+
+La anidación daría resultados terribles si quisieramos sacar, por ejemplo, una lista de las federaciones
+debido a que traería consigo los datos de los hijos de todas las federaciones.
+
+
+Estructura de la base de datos no normalizada:
+
+{
+	"artes marciales": {
+		"jiu-jitsu tradicional": {
+			"descripción": "",
+			"fundación": "",
+			"historia": ""
+		}
+	},
+	"federaciones": {
+		"jiu-jitsu tradicional": {
+			"Federación Nacional": true,
+			"Federación 2": true,
+			"Federación 3": true
+		}
+	},
+	"Cinturones": {
+		"jiu-jitsu tradicional": {
+			"Federación Nacional": {
+				"Amarillo": true,
+				"Naranja": true,
+				"Verde": true
+			}
+		}
+	},
+	"Técnicas": {
+		"jiu-jitsu tradicional": {
+			"Federación Nacional": {
+				"Amarillo": {
+					"Kesa": true,
+					"Kami": true,
+					"Tate": true
+				},
+				"Naranja": {},
+				"Verde": {}
+			}
+		}
+	},
+	"Técnica": {
+		"jiu-jitsu tradicional": {
+			"Federación Nacional": {
+				"Amarillo": {
+					"Kesa": {
+						"Nombre": "",
+						"Kanji": "",
+						"Descripción": ""
+					},
+					"Kami": {},
+					"Tate": {}
+
+				},
+				"Naranja": {},
+				"Verde": {}
+			}
+		}
+	}
+}
