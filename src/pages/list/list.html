@@ -16,12 +16,11 @@
 
 
 <ion-content class="base">
-  <p *ngFor="let t of tasks | async">{{t.key}}</p>
   <ion-list>
-    <div *ngFor="let item of techniques | search: myInput| belt: belt | sort: {property: column, order: order} ">
+    <div *ngFor="let item of techniques | async | search: myInput| belt: belt | sort: {property: column, order: order} ">
       <button ion-item (click)="itemTapped($event, item)">
         <ion-icon [ngClass]="item.belt" name="{{item.icon}}" item-start></ion-icon>
-        {{item.name}}
+        {{item.key}}
         <div class="item-note">
           {{item.waza}}
         </div>
