@@ -20,6 +20,7 @@ import { SearchPipe } from '../pipes/search/search';
 import { SortPipe } from '../pipes/sort/sort';
 import { BeltPipe } from '../pipes/belt/belt';
 import { SafeUrlPipe } from '../pipes/safe-url/safe-url';
+import { ReversePipe } from '../pipes/reverse/reverse';
 import { FilterDataProvider } from '../providers/filter-data/filter-data';
 
 /* Firebase */
@@ -48,7 +49,8 @@ const firebaseConfig = {
     FilterPage,
     SortPipe,
     BeltPipe,
-    SafeUrlPipe
+    SafeUrlPipe,
+    ReversePipe
   ],
   imports: [
     BrowserModule,
