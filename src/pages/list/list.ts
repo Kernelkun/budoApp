@@ -19,8 +19,8 @@ export class ListPage {
   myInput;
 
   belt;
-  order;
   column;
+  reverse = false;
 
   /* Firebase */
   techniques: Observable<any[]>;
@@ -33,18 +33,18 @@ export class ListPage {
     public _filterData: FilterDataProvider) {
     
     // We get the actual filter data.
-    this.order = _filterData.getOrder();
+    this.reverse = _filterData.getReverse();
     this.column = _filterData.getColum();
 
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
-    if(this.selectedItem){
-      console.log("selected: "+this.selectedItem);
+    // if(this.selectedItem){
+      // console.log("selected: "+this.selectedItem);
       // this.techniques = _technique.getTechniquesByBelt(this.selectedItem);
-    } else {
-      this.techniques = _technique.getTechniques();
-    }
+    // } else {
+      this.techniques = _technique.getTechniques('name');
+    // }
   }
 
   itemTapped(event, itemClicked) {
@@ -63,15 +63,11 @@ export class ListPage {
   }
 
   public openModal() {
-    // var data = { message: 'hello world' };
-    // var modalPage = this.modalCtrl.create(FilterPage, data);
     var modalPage = this.modalCtrl.create(FilterPage);
     modalPage.onDidDismiss(data => {
-      // console.log(data);
       
-      this.order = parseInt(data.order, 10);
-      // console.log(this.order);
-      this._filterData.setOrder(this.order);
+      this.reverse = data.reverse;
+      this._filterData.setReverse(this.reverse);
 
       this.belt = data.belt;
       this._filterData.setBelt(this.belt);

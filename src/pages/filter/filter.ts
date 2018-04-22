@@ -18,12 +18,12 @@ import { FilterDataProvider } from '../../providers/filter-data/filter-data';
 export class FilterPage {
   // items = ["1","2","3","4","5","6","7","8","9","10"];
   belt: string;
-  order: number;
+  reverse: boolean;
   // column;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public _filterData: FilterDataProvider) {
     // We get the actual filter data.
-    this.order = _filterData.getOrder();
+    this.reverse = _filterData.getReverse();
     this.belt = _filterData.getBelt();
   }
 
@@ -33,8 +33,9 @@ export class FilterPage {
 
   public closeModal() {
     // console.log(this.order);
-    var order = (typeof this.order == 'string' ? parseInt(this.order, 10) : this.order);
-    var data = { order: order, belt: this.belt};
+    var reverse = this.reverse;
+    // var order = (typeof this.order == 'string' ? parseInt(this.order, 10) : this.order);
+    var data = { reverse: reverse, belt: this.belt};
     this.viewCtrl.dismiss(data);
   }
 }

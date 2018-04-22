@@ -17,7 +17,7 @@
 
 <ion-content class="base">
   <ion-list>
-    <div *ngFor="let item of techniques | async | search: myInput| belt: belt | sort: {property: column, order: order} ">
+    <div *ngFor="let item of techniques | async | search: myInput| belt: belt | sort: {property: column, order: order} | reverse: reverse">
       <button ion-item (click)="itemTapped($event, item)">
         <ion-icon [ngClass]="item.belt" name="{{item.icon}}" item-start></ion-icon>
         {{item.key}}

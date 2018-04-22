@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TechniqueProvider } from '../../providers/technique/technique';
 import { ListPage } from '../list/list';
+import { Observable } from 'rxjs/Observable';
 
 /**
  * Generated class for the BeltsPage page.
@@ -16,7 +17,7 @@ import { ListPage } from '../list/list';
   templateUrl: 'belts.html',
 })
 export class BeltsPage {
-  belts: any[];
+  belts: Observable<any[]>;
   selectedItem: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public _technique: TechniqueProvider) {

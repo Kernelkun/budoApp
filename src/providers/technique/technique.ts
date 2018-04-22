@@ -14,16 +14,27 @@ export class TechniqueProvider {
     this.techniques = data.getData();
   }
 
-  getList(list: string) {
-    this.tasksRef = this.database.list(list);
+  getList(list: string, orderBy = undefined, reverse = undefined) {
+    if(orderBy) {
+      this.tasksRef = this.database.list(list, ref => ref.orderByChild( ( typeof(orderBy) == "string" ? orderBy : '' ) ));
+    } else {
+      this.tasksRef = this.database.list(list);
+    }
     return this.tasksRef.snapshotChanges()
       .map(changes => {
-        return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+        if(reverse){
+          return changes.map(c => ({ key: c.payload.key, ...c.payload.val() })).reverse();
+        } else {
+          return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+        }
       });
   }
 
-  getTechniques() {
-    return this.getList('technique/jiu-jitsu tradicional/Federación Nacional');
+  getTechniques(orderBy = undefined, reverse = undefined) {
+    return this.getList('technique/jiu-jitsu tradicional/Federación Nacional', orderBy, reverse);
+  }
+  getBelts(orderBy = undefined, reverse = undefined) {
+    return this.getList('belts/jiu-jitsu tradicional/Federación Nacional', orderBy, reverse);
   }
 
   // getTechniques() {
@@ -38,15 +49,15 @@ export class TechniqueProvider {
   //   return arrayTechniques;
   // }
 
-  getBelts() {
-    const arrayBelts = [];
+  // getBelts() {
+  //   const arrayBelts = [];
 
-    Object.keys(this.techniques).forEach(key => {
-      arrayBelts.push(key);
-    });
+  //   Object.keys(this.techniques).forEach(key => {
+  //     arrayBelts.push(key);
+  //   });
 
-    return arrayBelts;
-  }
+  //   return arrayBelts;
+  // }
 
   getTechniquesByBelt(color: string) {
     const arrayTechniques = [];
