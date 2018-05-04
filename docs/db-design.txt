@@ -1,0 +1,95 @@
+La estructura que queremos evitar será la siguiente:
+
+{
+	"jiu-jitsu tradicional": {
+		"federaciones": {
+			"Federación Nacional": {
+				"Cinturones": {
+					"Amarillo": {
+						"Técnicas": {
+							"Kesa": {
+								"Nombre": "",
+								"Kanji": "",
+								"Descripción": ""
+							},
+							"Kami": {},
+							"Tate": {}
+						}
+					},
+					"Naranja": {},
+					"Verde": {}
+				}
+			},
+			"Federacion bla bla bla": {},
+			"Federación tres": {},
+			"noFederation": {}
+		}
+	},
+	"jiu-jitsu brazilian": {}
+}
+
+La anidación dará resultados terribles si quisieramos sacar, por ejemplo, una lista de las federaciones
+debido a que traerá consigo los datos de los hijos de todas las federaciones.
+
+
+Estructura de la base de datos no normalizada:
+
+{
+	"martial arts": {
+		"jiu-jitsu tradicional": {
+			"descripción": "",
+			"fundación": "",
+			"historia": ""
+		}
+	},
+	"federations": {
+		"jiu-jitsu tradicional": {
+			"Federación Nacional": true,
+			"Federación 2": true,
+			"Federación 3": true
+		}
+	},
+	"belts": {
+		"jiu-jitsu tradicional": {
+			"Federación Nacional": {
+				"Amarillo": true,
+				"Naranja": true,
+				"Verde": true
+			}
+		}
+	},
+	"techniques": {
+		"jiu-jitsu tradicional": {
+			"Federación Nacional": {
+				"Amarillo": {
+					"Kesa": true,
+					"Kami": true,
+					"Tate": true
+				},
+				"Naranja": {},
+				"Verde": {}
+			}
+		}
+	},
+	"technique": {
+		"jiu-jitsu tradicional": {
+			"Federación Nacional": {
+				"Amarillo": {
+					"Kesa": {
+						"Nombre": "",
+						"Kanji": "",
+						"Descripción": ""
+					},
+					"Kami": {},
+					"Tate": {}
+
+				},
+				"Naranja": {},
+				"Verde": {}
+			}
+		}
+	}
+}
+
+Página de refencia en cuanto a la ordenación por clave, valor y clave secundaria:
+https://firebase.google.com/docs/database/rest/retrieve-data?hl=es-419#section-rest-filtering

@@ -17,13 +17,15 @@
 
 <ion-content class="base">
   <ion-list>
-    <button ion-item *ngFor="let item of techniques | search: myInput| belt: belt | sort: {property: column, order: order} " (click)="itemTapped($event, item)">
-      <ion-icon [ngClass]="item.belt" name="{{item.icon}}" item-start></ion-icon>
-      {{item.name}}
-      <div class="item-note">
-        {{item.waza}}
-      </div>
-    </button>
+    <div *ngFor="let item of techniques | async | search: myInput| belt: belt | sort: {property: column, order: order} | reverse: reverse">
+      <button ion-item (click)="itemTapped($event, item)">
+        <ion-icon [ngClass]="item.belt" name="{{item.icon}}" item-start></ion-icon>
+        {{item.key}}
+        <div class="item-note">
+          {{item.waza}}
+        </div>
+      </button>
+    </div>
   </ion-list>
   <div *ngIf="selectedItem" padding>
     You navigated here from <b>{{selectedItem.name}}</b>

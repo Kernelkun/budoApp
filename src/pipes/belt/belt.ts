@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 /**
  * Generated class for the BeltPipe pipe.
@@ -12,12 +13,14 @@ export class BeltPipe implements PipeTransform {
   /**
    * Takes a value and makes it lowercase.
    */
-  transform(items: any[], terms: string): any[] {
-    if (!items) return [];
+  transform(items: Observable<any[]>, terms: string): Observable<any[]> {
+    if (!items) return Observable[''];
     if (!terms) return items;
     terms = terms.toString().toLowerCase();
     return items.filter(it => {
-      return it.belt.toString().toLowerCase().includes(terms);
+      // console.log(it);
+      // return true;
+      return it["belt"].toString().toLowerCase().includes(terms);
     });
   }
 }

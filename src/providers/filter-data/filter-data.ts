@@ -1,26 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-/*
-  Generated class for the FilterDataProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class FilterDataProvider {
-  order: number = 1; // -1 = Z-A; 0 = No order; 1 = A-Z
   column: string = 'name'; // Default filter column
   belt: string = '';
+  reverse: boolean = false;
 
   constructor(public http: HttpClient) {
-    // console.log('order: ', this.order);
+    // console.log('reverse: ', this.reverse);
     // console.log('column: ', this.column);
   }
 
-  getOrder() { return this.order; }
+  getReverse() { return this.reverse; }
 
-  setOrder(order) { this.order = order; }
+  setReverse(reverse) { this.reverse = reverse; }
 
   getColum() { return this.column; }
 

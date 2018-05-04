@@ -1,43 +1,63 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { DataProvider } from '../data/data';
+/* Firebase */
+import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 
-/*
-  Generated class for the TechniqueProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class TechniqueProvider {
+  tasksRef: AngularFireList<any>; // Firebase
   techniques;
-  // techniques: Array<{ name: string, description: string, kanji: string, icon: string, belt: string, translated: string }>;
 
-  constructor(public http: HttpClient, data: DataProvider) {
+  constructor(public http: HttpClient, data: DataProvider, public database: AngularFireDatabase) {
     this.techniques = data.getData();
   }
 
-  getTechniques() {
-    const arrayTechniques = [];
-    
-    Object.keys(this.techniques).forEach(key => {
-      this.techniques[key].forEach(element => {
-        arrayTechniques.push(element);
+  getList(list: string, orderBy = undefined, reverse = undefined) {
+    if(orderBy) {
+      this.tasksRef = this.database.list(list, ref => ref.orderByChild( ( typeof(orderBy) == "string" ? orderBy : '' ) ));
+    } else {
+      this.tasksRef = this.database.list(list);
+    }
+    return this.tasksRef.snapshotChanges()
+      .map(changes => {
+        if(reverse){
+          return changes.map(c => ({ key: c.payload.key, ...c.payload.val() })).reverse();
+        } else {
+          return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+        }
       });
-    });
-
-    return arrayTechniques;
   }
 
-  getBelts() {
-    const arrayBelts = [];
-
-    Object.keys(this.techniques).forEach(key => {
-      arrayBelts.push(key);
-    });
-
-    return arrayBelts;
+  getTechniques(orderBy = undefined, reverse = undefined) {
+    return this.getList('technique/jiu-jitsu tradicional/Federación Nacional', orderBy, reverse);
   }
+  getBelts(orderBy = undefined, reverse = undefined) {
+    return this.getList('belts/jiu-jitsu tradicional/Federación Nacional', orderBy, reverse);
+  }
+
+  // getTechniques() {
+  //   const arrayTechniques = [];
+    
+  //   Object.keys(this.techniques).forEach(key => {
+  //     this.techniques[key].forEach(element => {
+  //       arrayTechniques.push(element);
+  //     });
+  //   });
+
+  //   return arrayTechniques;
+  // }
+
+  // getBelts() {
+  //   const arrayBelts = [];
+
+  //   Object.keys(this.techniques).forEach(key => {
+  //     arrayBelts.push(key);
+  //   });
+
+  //   return arrayBelts;
+  // }
 
   getTechniquesByBelt(color: string) {
     const arrayTechniques = [];

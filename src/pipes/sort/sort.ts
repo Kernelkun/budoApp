@@ -13,6 +13,7 @@ export class SortPipe implements PipeTransform {
    * Takes a value and makes it lowercase.
    */
   transform(array: Array<string>, args?: any): Array<string> {
+    if (array.length == 0) return array;
     return array.sort(function (a, b) {
       if (a[args.property] < b[args.property]) {
         return -1 * args.order;
