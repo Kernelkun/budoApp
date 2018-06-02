@@ -1,6 +1,7 @@
 import { Component, EventEmitter } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TechniqueProvider } from '../../providers/technique/technique';
 
 @IonicPage()
 @Component({
@@ -9,6 +10,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MemorizeBeltPage {
 
+  belt: any;
   ready = false;
   attendants = [];
   cardDirection = "xy";
@@ -28,7 +30,13 @@ export class MemorizeBeltPage {
     "https://qph.fs.quoracdn.net/main-qimg-980a13410f56739c66864b89c4466263-c",
     "http://starsvilla.com/wp-content/uploads/2017/09/19425346_145774522639533_5306252787913326592_n.jpg"
   ]
-  constructor(public navCtrl: NavController, public navParams: NavParams, private sanitizer: DomSanitizer) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    private sanitizer: DomSanitizer,
+    public _technique: TechniqueProvider) {
+
+    this.belt = this._technique.getTechniquesByBelt( navParams.get('belt') );
+    console.log(this._technique.getTechniquesByBelt(navParams.get('belt')));
 
     for (let i = 0; i < this.images.length; i++) {
       this.attendants.push({

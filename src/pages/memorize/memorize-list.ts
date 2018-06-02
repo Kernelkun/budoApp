@@ -20,11 +20,10 @@ export class MemorizeListPage {
     public _technique: TechniqueProvider) {
 
     this.belts = this._technique.getBelts('order');
-    this._technique.getBelts('order').subscribe(val => console.log(val));
   }
 
-  openPage(color) {
-    this.navCtrl.push(MemorizeBeltPage, {'color': color});
+  openPage(belt) {
+    this.navCtrl.push(MemorizeBeltPage, { belt: belt });
   }
 
   public reverseOrder() {
