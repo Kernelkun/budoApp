@@ -1,7 +1,16 @@
 page-memorize {
+    .super-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 10%;
+    }
+
     .card-container {
         height: 90vw;
         width: 90vw;
+        margin: 0 auto;
     }
     .user_img {
         display: block;
