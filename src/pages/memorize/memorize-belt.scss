@@ -35,7 +35,9 @@ page-memorize {
         transition: transform 1s;
         transform-style: preserve-3d;
         cursor: pointer;
-        position: relative;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
 
     .card.is-flipped {
@@ -55,11 +57,11 @@ page-memorize {
     }
 
     .card__face--front {
-        background: red;
+        background: #5a5a5a;
     }
 
     .card__face--back {
-        background: blue;
+        background: rgb(50, 156, 73);
         transform: rotateY(180deg);
     }
 }
