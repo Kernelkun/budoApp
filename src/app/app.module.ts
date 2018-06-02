@@ -11,7 +11,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { BeltsPage } from '../pages/belts/belts';
 import { TechniquePage } from '../pages/technique/technique';
 import { FilterPage } from '../pages/filter/filter';
-import { MemorizePage } from '../pages/memorize/memorize'
+import { MemorizeListPage } from '../pages/memorize/memorize-list'
 // Miscelanea
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -53,7 +53,7 @@ const firebaseConfig = {
     BeltPipe,
     SafeUrlPipe,
     ReversePipe,
-    MemorizePage
+    MemorizeListPage
   ],
   imports: [
     BrowserModule,
@@ -72,7 +72,7 @@ const firebaseConfig = {
     FilterPage,
     BeltsPage,
     TechniquePage,
-    MemorizePage
+    MemorizeListPage
   ],
   providers: [
     StatusBar,
