@@ -33,31 +33,10 @@ export class TechniqueProvider {
   getTechniques(orderBy = undefined, reverse = undefined) {
     return this.getList('technique/jiu-jitsu tradicional/Federación Nacional', orderBy, reverse);
   }
+  
   getBelts(orderBy = undefined, reverse = undefined) {
     return this.getList('belts/jiu-jitsu tradicional/Federación Nacional', orderBy, reverse);
   }
-
-  // getTechniques() {
-  //   const arrayTechniques = [];
-    
-  //   Object.keys(this.techniques).forEach(key => {
-  //     this.techniques[key].forEach(element => {
-  //       arrayTechniques.push(element);
-  //     });
-  //   });
-
-  //   return arrayTechniques;
-  // }
-
-  // getBelts() {
-  //   const arrayBelts = [];
-
-  //   Object.keys(this.techniques).forEach(key => {
-  //     arrayBelts.push(key);
-  //   });
-
-  //   return arrayBelts;
-  // }
 
   getTechniquesByBelt(color: string) {
     const arrayTechniques = [];

@@ -39,12 +39,7 @@ export class ListPage {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
-    // if(this.selectedItem){
-      // console.log("selected: "+this.selectedItem);
-      // this.techniques = _technique.getTechniquesByBelt(this.selectedItem);
-    // } else {
-      this.techniques = _technique.getTechniques('name');
-    // }
+    this.techniques = _technique.getTechniques('name');
   }
 
   itemTapped(event, itemClicked) {
