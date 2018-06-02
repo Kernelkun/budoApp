@@ -12,6 +12,10 @@ export class MemorizeBeltPage {
 
   belt: Array<any>;
   nextRound = [];
+
+  imgFront = true;
+  pFront = false;
+
   ready = false;
   attendants = [];
   cardDirection = "x";
@@ -38,7 +42,8 @@ export class MemorizeBeltPage {
         id: key,
         likeEvent: new EventEmitter(),
         destroyEvent: new EventEmitter(),
-        asBg: this.sanitizer.bypassSecurityTrustStyle('url(' + value.img + ')')
+        asBg: this.sanitizer.bypassSecurityTrustStyle('url(' + value.img + ')'),
+        key: value.key
       });
     });
     this.ready = true;    
