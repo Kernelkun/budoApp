@@ -59,4 +59,9 @@ export class MemorizeBeltPage {
     return document.getElementsByClassName("card")[0].classList.toggle("is-flipped");
   }
 
+  backFirst() {
+    this.imgFront = !this.imgFront;
+    this.pFront = !this.pFront;
+  }
+
 }
