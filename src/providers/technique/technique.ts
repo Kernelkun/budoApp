@@ -14,7 +14,7 @@ export class TechniqueProvider {
     this.techniques = data.getData();
   }
 
-  getList(list: string, orderBy = undefined, reverse = undefined) {
+  getList(list: string, orderBy?, reverse?) {
     if(orderBy) {
       this.tasksRef = this.database.list(list, ref => ref.orderByChild( ( typeof(orderBy) == "string" ? orderBy : '' ) ));
     } else {
@@ -33,7 +33,7 @@ export class TechniqueProvider {
   getTechniques(orderBy = undefined, reverse = undefined) {
     return this.getList('technique/jiu-jitsu tradicional/Federación Nacional', orderBy, reverse);
   }
-  
+
   getBelts(orderBy = undefined, reverse = undefined) {
     return this.getList('belts/jiu-jitsu tradicional/Federación Nacional', orderBy, reverse);
   }

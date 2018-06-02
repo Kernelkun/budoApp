@@ -3,13 +3,18 @@
     <ion-title>
       Memorize
     </ion-title>
+        <ion-buttons end>
+          <button ion-button icon-only (click)="reverseOrder()">
+            <ion-icon name="swap"></ion-icon>
+          </button>
+        </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="base">
   <ion-list>
-    <div *ngFor="let item of belts | async | sort: {property: column, order: order}">
-      <button ion-item (click)="openPage(item.key)">
+    <div *ngFor="let item of belts | async | reverse: reverse">
+      <button ion-item (click)="openPage(item.belt)">
         <ion-icon [ngClass]="item.belt" name="radio-button-on" item-start></ion-icon>
         {{item.key}}
         <div class="item-note">

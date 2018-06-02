@@ -12,14 +12,23 @@ import { Observable } from 'rxjs/Observable';
 export class MemorizeListPage {
 
   belts: Observable<any[]>;
+  reverse = false;  
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public _technique: TechniqueProvider,) {
-    this.belts = this._technique.getBelts();
-    this._technique.getBelts().subscribe(val => console.log(val));
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public _technique: TechniqueProvider) {
+
+    this.belts = this._technique.getBelts('order');
+    this._technique.getBelts('order').subscribe(val => console.log(val));
   }
 
   openPage(color) {
     this.navCtrl.push(MemorizeBeltPage, {'color': color});
+  }
+
+  public reverseOrder() {
+    this.reverse = !this.reverse;
   }
 
 }
