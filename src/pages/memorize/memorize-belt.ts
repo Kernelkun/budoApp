@@ -50,4 +50,8 @@ export class MemorizeBeltPage {
     }
   }
 
+  flip() {
+    return document.getElementsByClassName("card")[0].classList.toggle("is-flipped");
+  }
+
 }
