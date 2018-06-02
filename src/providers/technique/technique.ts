@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { DataProvider } from '../data/data';
 /* Firebase */
 import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 
@@ -10,8 +9,8 @@ export class TechniqueProvider {
   tasksRef: AngularFireList<any>; // Firebase
   techniques;
 
-  constructor(public http: HttpClient, data: DataProvider, public database: AngularFireDatabase) {
-    this.techniques = data.getData();
+  constructor(public http: HttpClient, public database: AngularFireDatabase) {
+    this.techniques = this.getTechniques();
   }
 
   getList(list: string, orderBy?, reverse?) {
@@ -41,12 +40,12 @@ export class TechniqueProvider {
   getTechniquesByBelt(color: string) {
     const arrayTechniques = [];
 
-    Object.keys(this.techniques).forEach(key => {
-      if (key === color) {
-        this.techniques[key].forEach(element => {
-          arrayTechniques.push(element);
-        });
-      }
+    this.techniques.subscribe(data => {
+      data.forEach(key => {
+        if (key.belt === color) {
+          arrayTechniques.push(key);
+        }
+      });
     });
 
     return arrayTechniques;
