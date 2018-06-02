@@ -10,10 +10,11 @@ import { TechniqueProvider } from '../../providers/technique/technique';
 })
 export class MemorizeBeltPage {
 
-  belt: any;
+  belt: Array<any>;
+  nextRound = [];
   ready = false;
   attendants = [];
-  cardDirection = "xy";
+  cardDirection = "x";
   cardOverlay: any = {
     like: {
       backgroundColor: '#28e93b'
@@ -23,35 +24,30 @@ export class MemorizeBeltPage {
     }
   };
 
-  images = ["https://media.vogue.in/wp-content/uploads/2017/12/2017-01-2-disha-patani-hairstyles-makeup-vogue-india.jpg",
-    "http://static.dnaindia.com/sites/default/files/styles/full/public/2018/02/04/648069-rakul-preet-singh.jpg",
-    "https://pbs.twimg.com/profile_images/928946397436506113/6QE6iLb7.jpg",
-    "https://pbs.twimg.com/media/DUFbk2cV4AAwl2v.jpg",
-    "https://qph.fs.quoracdn.net/main-qimg-980a13410f56739c66864b89c4466263-c",
-    "http://starsvilla.com/wp-content/uploads/2017/09/19425346_145774522639533_5306252787913326592_n.jpg"
-  ]
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private sanitizer: DomSanitizer,
     public _technique: TechniqueProvider) {
 
     this.belt = this._technique.getTechniquesByBelt( navParams.get('belt') );
-    console.log(this._technique.getTechniquesByBelt(navParams.get('belt')));
-
-    for (let i = 0; i < this.images.length; i++) {
+  }
+  
+  ionViewWillEnter() {
+    this.belt.forEach((value, key) => {
       this.attendants.push({
-        id: i + 1,
+        id: key,
         likeEvent: new EventEmitter(),
         destroyEvent: new EventEmitter(),
-        asBg: this.sanitizer.bypassSecurityTrustStyle('url(' + this.images[i] + ')')
+        asBg: this.sanitizer.bypassSecurityTrustStyle('url(' + value.img + ')')
       });
-    }
-
-    this.ready = true;
+    });
+    this.ready = true;    
   }
 
-  onCardInteract(event) {
-    console.log(event);
+  onCardInteract(event, technique) {
+    if (event.like == false) {
+      this.nextRound.push(this.belt[technique.id]);
+    }
   }
 
 }
