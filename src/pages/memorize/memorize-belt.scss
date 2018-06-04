@@ -1,4 +1,8 @@
 page-memorize {
+    .row {
+        padding: 10% 0;
+    }
+    
     .super-container {
         width: 100%;
         display: flex;
@@ -24,7 +28,6 @@ page-memorize {
     .scene {
         width: 200px;
         height: 260px;
-        margin: 40px 0;
         perspective: 600px;
     }
 

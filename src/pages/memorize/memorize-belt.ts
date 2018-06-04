@@ -29,6 +29,10 @@ export class MemorizeBeltPage {
     }
   };
 
+  successed: number = 0;
+  failed: number = 0;
+  total: number = 0;
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private sanitizer: DomSanitizer,
@@ -36,13 +40,12 @@ export class MemorizeBeltPage {
     public _imageColor: ImageColorProvider) {
 
     this.belt = this._technique.getTechniquesByBelt( navParams.get('belt') );
-    this._imageColor.getMayorColor('https://judohd.de/wp-content/themes/JudoHD2.0/webapp/Img/GR/big/Würfe/Koshi-guruma/Koshi-guruma4.jpg').subscribe(data => console.log(data));
   }
   
   ionViewWillEnter() {
     this.belt.forEach((value, key) => {
       let bgColor: string;
-      this._imageColor.getMayorColor(value.img).subscribe(data => {
+      this._imageColor.getMayorColor(value.img).subscribe((data: any) => {
         bgColor = data.colors.dominant.hex;
         console.log(bgColor);
         this.cards.push({
@@ -60,9 +63,13 @@ export class MemorizeBeltPage {
   }
 
   onCardInteract(event, technique) {
-    if (event.like == false) {
+    if (event.like == false) { // If the user failed
       this.nextRound.push(this.belt[technique.id]);
+      this.failed++;
+    } else {
+      this.successed++
     }
+    this.total++;
   }
 
   flip() {
