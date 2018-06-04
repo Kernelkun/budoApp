@@ -20,6 +20,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { FilterDataProvider } from '../providers/filter-data/filter-data';
 import { TechniqueProvider } from '../providers/technique/technique';
 import { DataProvider } from '../providers/data/data';
+import { ImageColorProvider } from '../providers/image-color/image-color';
 // Pipes
 import { SearchPipe } from '../pipes/search/search';
 import { SortPipe } from '../pipes/sort/sort';
@@ -83,7 +84,8 @@ const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     TechniqueProvider,
     DataProvider,
-    FilterDataProvider
+    FilterDataProvider,
+    ImageColorProvider
   ]
 })
 export class AppModule {}

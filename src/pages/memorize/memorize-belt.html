@@ -13,13 +13,13 @@
         [callLike]="attendant.likeEvent" (onLike)="onCardInteract($event, attendant)" (click)="flip()">
         <!-- <div class="user_img" [style.background-image]="attendant.asBg"></div> -->
         <div class="card">
-          <div class="card__face card__face--front">
+          <div class="card__face card__face--front" [style.background-color]="attendant.bgColor">
             <div *ngIf="imgFront" class="user_img" [style.background-image]="attendant.asBg"></div>
             <p *ngIf="pFront">{{attendant.key}}</p>         
           </div>
           <div class="card__face card__face--back">
             <div *ngIf="!imgFront" class="user_img" [style.background-image]="attendant.asBg"></div>
-            <p *ngIf="!pFront">{{attendant.key}}</p>
+            <p *ngIf="!pFront">{{attendant.bgColor}}</p>
           </div>
         </div>
       </sc-card>
