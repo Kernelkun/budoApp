@@ -18,7 +18,7 @@ export class MemorizeBeltPage {
   pFront = false;
 
   ready = false;
-  attendants = [];
+  cards = [];
   cardDirection = "x";
   cardOverlay: any = {
     like: {
@@ -41,17 +41,18 @@ export class MemorizeBeltPage {
   
   ionViewWillEnter() {
     this.belt.forEach((value, key) => {
-      let bgColor = "";
+      let bgColor: string;
       this._imageColor.getMayorColor(value.img).subscribe(data => {
         bgColor = data.colors.dominant.hex;
         console.log(bgColor);
-        this.attendants.push({
+        this.cards.push({
           id: key,
+          img: this.sanitizer.bypassSecurityTrustStyle('url(' + value.img + ')'),
+          title: value.key,
+          bgColor: bgColor,
+          description: value.description,
           likeEvent: new EventEmitter(),
-          destroyEvent: new EventEmitter(),
-          asBg: this.sanitizer.bypassSecurityTrustStyle('url(' + value.img + ')'),
-          key: value.key,
-          bgColor: bgColor
+          destroyEvent: new EventEmitter()
         });
       });
     });

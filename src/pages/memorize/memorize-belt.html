@@ -9,17 +9,17 @@
 <ion-content>
   <div class="super-container">
     <div class="card-container" *ngIf="ready">
-      <sc-card class="scene scene--card" padding *ngFor="let attendant of attendants" [orientation]="cardDirection" [tinder-card]="cardOverlay" [callDestroy]="attendant.destroyEvent"
-        [callLike]="attendant.likeEvent" (onLike)="onCardInteract($event, attendant)" (click)="flip()">
-        <!-- <div class="user_img" [style.background-image]="attendant.asBg"></div> -->
+      <sc-card class="scene scene--card" padding *ngFor="let card of cards" [orientation]="cardDirection" [tinder-card]="cardOverlay" [callDestroy]="card.destroyEvent"
+        [callLike]="card.likeEvent" (onLike)="onCardInteract($event, card)" (click)="flip()">
+        <!-- <div class="user_img" [style.background-image]="card.asBg"></div> -->
         <div class="card">
-          <div class="card__face card__face--front" [style.background-color]="attendant.bgColor">
-            <div *ngIf="imgFront" class="user_img" [style.background-image]="attendant.asBg"></div>
-            <p *ngIf="pFront">{{attendant.key}}</p>         
+          <div class="card__face card__face--front" [style.background-color]="card.bgColor">
+            <div *ngIf="imgFront" class="user_img" [style.background-image]="card.img"></div>
+            <h1 *ngIf="hFront">{{card.title}}</h1>         
           </div>
-          <div class="card__face card__face--back">
-            <div *ngIf="!imgFront" class="user_img" [style.background-image]="attendant.asBg"></div>
-            <p *ngIf="!pFront">{{attendant.bgColor}}</p>
+          <div class="card__face card__face--back" [style.background-color]="card.bgColor">
+            <div *ngIf="!imgFront" class="user_img" [style.background-image]="card.img"></div>
+            <h1 *ngIf="!hFront">{{card.title}}</h1>
           </div>
         </div>
       </sc-card>
