@@ -24,7 +24,6 @@ page-memorize {
     .scene {
         width: 200px;
         height: 260px;
-        border: 1px solid #CCC;
         margin: 40px 0;
         perspective: 600px;
     }
@@ -38,6 +37,7 @@ page-memorize {
         position: absolute;
         top: 0;
         left: 0;
+        border: 1px solid #CCC;
     }
 
     .card.is-flipped {
@@ -61,7 +61,16 @@ page-memorize {
     }
 
     .card__face--back {
-        background: rgb(50, 156, 73);
         transform: rotateY(180deg);
+    }
+
+    .card__face--front, .card__face--back {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h1 {
+            font-size: 1em;
+        }
     }
 }
