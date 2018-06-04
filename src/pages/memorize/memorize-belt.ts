@@ -43,6 +43,7 @@ export class MemorizeBeltPage {
       this.belt = this._technique.getTechniquesByBelt( navParams.get('belt') );
     } else {
       this.cards = this.navParams.get('cards');
+      this.ready = true;
     }
     console.log(this.cards);
   }
