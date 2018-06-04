@@ -41,6 +41,9 @@
       <ion-col>
         <button *ngIf="cards.length === total">Next round</button>
       </ion-col>
+      <ion-col>
+        <button (click)="backFirst()">Back first</button>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

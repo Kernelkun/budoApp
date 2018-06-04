@@ -15,7 +15,7 @@ export class MemorizeBeltPage {
   nextRound = [];
 
   imgFront = true;
-  pFront = false;
+  hFront = false;
 
   ready = false;
   cards = [];
@@ -78,7 +78,7 @@ export class MemorizeBeltPage {
 
   backFirst() {
     this.imgFront = !this.imgFront;
-    this.pFront = !this.pFront;
+    this.hFront = !this.hFront;
   }
 
 }
