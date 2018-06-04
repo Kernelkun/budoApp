@@ -45,7 +45,8 @@ export class MemorizeBeltPage {
       this.cards = this.navParams.get('cards');
       this.ready = true;
     }
-    console.log(this.cards);
+    console.log(this.navCtrl.length());
+    console.log(this.navCtrl.length() - 1);
   }
   
   ionViewWillEnter() {
@@ -54,7 +55,6 @@ export class MemorizeBeltPage {
         let bgColor: string;
         this._imageColor.getMayorColor(value.img).subscribe((data: any) => {
           bgColor = data.colors.dominant.hex;
-          console.log(bgColor);
           this.cards.push({
             id: key,
             img: this.sanitizer.bypassSecurityTrustStyle('url(' + value.img + ')'),
@@ -90,6 +90,10 @@ export class MemorizeBeltPage {
   }
 
   nextTry() {
-    this.navCtrl.push(MemorizeBeltPage, {cards: this.nextRound});
+    if (this.nextRound.length > 0) { // If there are cards.
+      this.navCtrl.push(MemorizeBeltPage, {cards: this.nextRound});
+    } else { // If there are not cards.
+      this.navCtrl.popTo(this.navCtrl.getByIndex(1));
+    }
   }
 }
