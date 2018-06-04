@@ -39,32 +39,39 @@ export class MemorizeBeltPage {
     public _technique: TechniqueProvider,
     public _imageColor: ImageColorProvider) {
 
-    this.belt = this._technique.getTechniquesByBelt( navParams.get('belt') );
+    if (!navParams.get('cards')){
+      this.belt = this._technique.getTechniquesByBelt( navParams.get('belt') );
+    } else {
+      this.cards = this.navParams.get('cards');
+    }
+    console.log(this.cards);
   }
   
   ionViewWillEnter() {
-    this.belt.forEach((value, key) => {
-      let bgColor: string;
-      this._imageColor.getMayorColor(value.img).subscribe((data: any) => {
-        bgColor = data.colors.dominant.hex;
-        console.log(bgColor);
-        this.cards.push({
-          id: key,
-          img: this.sanitizer.bypassSecurityTrustStyle('url(' + value.img + ')'),
-          title: value.key,
-          bgColor: bgColor,
-          description: value.description,
-          likeEvent: new EventEmitter(),
-          destroyEvent: new EventEmitter()
+    if (!this.navParams.get('cards')) {
+      this.belt.forEach((value, key) => {
+        let bgColor: string;
+        this._imageColor.getMayorColor(value.img).subscribe((data: any) => {
+          bgColor = data.colors.dominant.hex;
+          console.log(bgColor);
+          this.cards.push({
+            id: key,
+            img: this.sanitizer.bypassSecurityTrustStyle('url(' + value.img + ')'),
+            title: value.key,
+            bgColor: bgColor,
+            description: value.description,
+            likeEvent: new EventEmitter(),
+            destroyEvent: new EventEmitter()
+          });
         });
       });
-    });
-    this.ready = true;    
+      this.ready = true;
+    }
   }
 
   onCardInteract(event, technique) {
     if (event.like == false) { // If the user failed
-      this.nextRound.push(this.belt[technique.id]);
+      this.nextRound.push(technique);
       this.failed++;
     } else {
       this.successed++
@@ -81,4 +88,7 @@ export class MemorizeBeltPage {
     this.hFront = !this.hFront;
   }
 
+  nextTry() {
+    this.navCtrl.push(MemorizeBeltPage, {cards: this.nextRound});
+  }
 }

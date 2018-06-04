@@ -39,7 +39,7 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <button *ngIf="cards.length === total">Next round</button>
+        <button *ngIf="cards.length === total" (click)="nextTry()">Next round</button>
       </ion-col>
       <ion-col>
         <button (click)="backFirst()">Back first</button>
