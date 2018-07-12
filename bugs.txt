@@ -2,6 +2,7 @@ BUG CONOCIDOS:
 
 + #001 - [CSS] Cuando hay menos elementos en la lista, estos tienen demasiado espacio porque están raprtiéndolo.
         Hay que encontrar otra forma de darles espacio entre ellos, el método actual no es válido.
++ #003 - [CSS] Al añadir una nueva opción en el menú lateral, aparece una línea debajo de la palabra técnicas.
 
 
 SOLUCIONADO:

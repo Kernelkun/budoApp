@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { DataProvider } from '../data/data';
 /* Firebase */
 import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 
@@ -10,11 +9,11 @@ export class TechniqueProvider {
   tasksRef: AngularFireList<any>; // Firebase
   techniques;
 
-  constructor(public http: HttpClient, data: DataProvider, public database: AngularFireDatabase) {
-    this.techniques = data.getData();
+  constructor(public http: HttpClient, public database: AngularFireDatabase) {
+    this.techniques = this.getTechniques();
   }
 
-  getList(list: string, orderBy = undefined, reverse = undefined) {
+  getList(list: string, orderBy?, reverse?) {
     if(orderBy) {
       this.tasksRef = this.database.list(list, ref => ref.orderByChild( ( typeof(orderBy) == "string" ? orderBy : '' ) ));
     } else {
@@ -33,41 +32,20 @@ export class TechniqueProvider {
   getTechniques(orderBy = undefined, reverse = undefined) {
     return this.getList('technique/jiu-jitsu tradicional/Federación Nacional', orderBy, reverse);
   }
+
   getBelts(orderBy = undefined, reverse = undefined) {
     return this.getList('belts/jiu-jitsu tradicional/Federación Nacional', orderBy, reverse);
   }
 
-  // getTechniques() {
-  //   const arrayTechniques = [];
-    
-  //   Object.keys(this.techniques).forEach(key => {
-  //     this.techniques[key].forEach(element => {
-  //       arrayTechniques.push(element);
-  //     });
-  //   });
-
-  //   return arrayTechniques;
-  // }
-
-  // getBelts() {
-  //   const arrayBelts = [];
-
-  //   Object.keys(this.techniques).forEach(key => {
-  //     arrayBelts.push(key);
-  //   });
-
-  //   return arrayBelts;
-  // }
-
   getTechniquesByBelt(color: string) {
     const arrayTechniques = [];
 
-    Object.keys(this.techniques).forEach(key => {
-      if (key === color) {
-        this.techniques[key].forEach(element => {
-          arrayTechniques.push(element);
-        });
-      }
+    this.techniques.subscribe(data => {
+      data.forEach(key => {
+        if (key.belt === color) {
+          arrayTechniques.push(key);
+        }
+      });
     });
 
     return arrayTechniques;

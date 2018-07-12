@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Memorize
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="card-container" *ngIf="ready">
+          <sc-card class="scene scene--card" padding *ngFor="let card of cards" [orientation]="cardDirection" [tinder-card]="cardOverlay"
+            [callDestroy]="card.destroyEvent" [callLike]="card.likeEvent" (onLike)="onCardInteract($event, card)" (click)="flip()">
+            <!-- <div class="user_img" [style.background-image]="card.asBg"></div> -->
+            <div class="card">
+              <div class="card__face card__face--front" [style.background-color]="card.bgColor">
+                <div *ngIf="imgFront" class="user_img" [style.background-image]="card.img"></div>
+                <h1 *ngIf="hFront">{{card.title}}</h1>
+              </div>
+              <div class="card__face card__face--back" [style.background-color]="card.bgColor">
+                <div *ngIf="!imgFront" class="user_img" [style.background-image]="card.img"></div>
+                <h1 *ngIf="!hFront">{{card.title}}</h1>
+              </div>
+            </div>
+          </sc-card>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="counter">
+          <span>Total: {{total}}</span>
+          <span>Successed: {{successed}}</span>
+          <span>Failes: {{failed}}</span>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button *ngIf="cards.length === total" (click)="nextTry()">Next round</button>
+      </ion-col>
+      <ion-col>
+        <button (click)="backFirst()">Back first</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

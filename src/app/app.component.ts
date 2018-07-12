@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { ListPage } from '../pages/list/list';
+import { MemorizeListPage } from '../pages/memorize/memorize-list'
 
 @Component({
   templateUrl: 'app.html'
@@ -21,7 +22,8 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Técnicas', component: ListPage, icon: "list" }
+      { title: 'Técnicas', component: ListPage, icon: "list" },
+      { title: 'Memorizar', component: MemorizeListPage, icon: "list" }
     ];
 
   }
@@ -36,8 +38,6 @@ export class MyApp {
   }
 
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    this.nav.push(page.component);
   }
 }
