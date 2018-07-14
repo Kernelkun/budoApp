@@ -3,19 +3,21 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Budo App</ion-title>
+    <ion-searchbar [(ngModel)]="myInput"></ion-searchbar>
     <ion-buttons end>
       <button ion-button icon-only  (click)="openModal()">
         <ion-icon name="funnel"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
-
-  <ion-searchbar [(ngModel)]="myInput"></ion-searchbar>
 </ion-header>
 
 
 <ion-content class="base">
+  <div class="budo-top">
+    <div class="header__bg"></div>
+    <img class="budo-logo" src="assets/imgs/budo.png">
+  </div>
   <ion-list>
     <div *ngFor="let item of techniques | async | search: myInput| belt: belt | sort: {property: column, order: order} | reverse: reverse">
       <button ion-item (click)="itemTapped($event, item)">
