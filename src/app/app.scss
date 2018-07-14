@@ -40,7 +40,7 @@
         margin-bottom: 30%;
         .budo-logo {
             max-width: 20%;
-            border: 6px solid black;
+            border: 6px solid #2a2a2a;
             padding: 1%;
             position: absolute;
             top: 24%;
@@ -76,6 +76,7 @@
 
 ion-header {
     background-color: #958987;
+    color: black;
 }
 
 // ion-menu ion-header {
