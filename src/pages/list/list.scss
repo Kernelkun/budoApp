@@ -28,9 +28,13 @@ ion-buttons > button {
 
 .searchbar-md {
     background: transparent;
-    padding: 12% 10% 3% 10%;
-    // padding: 40px 10% 3% 10%;
-    // background: linear-gradient(to bottom, transparent 60px,#ffffff 0%,#fff 100%);
+    padding: 3% 10%;
+}
+
+.searchbar-md .searchbar-input {
+    box-shadow: none;
+    background-color: transparent;
+    border-bottom: 2px solid #958987;
 }
 
 .bar-button-default-md, .toolbar-title-md {
