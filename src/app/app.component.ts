@@ -13,7 +13,6 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = ListPage;
-  // rootPage: any = TabsPage;
 
   pages: Array<{title: string, component: any, icon: string}>;
 
@@ -38,6 +37,6 @@ export class MyApp {
   }
 
   openPage(page) {
-    this.nav.push(page.component);
+    page.component == ListPage ? this.nav.popToRoot() : this.nav.push(page.component);
   }
 }
