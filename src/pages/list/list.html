@@ -17,19 +17,24 @@
     <div class="header__bg"></div>
     <img class="budo-logo" src="assets/imgs/budo.png">
   </div>
-  <ion-searchbar [(ngModel)]="myInput"></ion-searchbar>
+  <div class="single-bar"></div>
   <ion-list>
     <div *ngFor="let item of techniques | async | search: myInput| belt: belt | sort: {property: column, order: order} | reverse: reverse">
       <button ion-item (click)="itemTapped($event, item)">
-        <ion-icon [ngClass]="item.belt" name="{{item.icon}}" item-start></ion-icon>
-        {{item.key}}
-        <div class="item-note">
-          {{item.waza}}
+        <!-- <ion-icon [ngClass]="item.belt" name="{{item.icon}}" item-start></ion-icon> -->
+        <!-- <div class="item-circle" [ngClass]="['bg-'+item.belt, 'border-color-'+item.belt]"></div> -->
+        <div class="item-box">
+          <div class="item-key">
+            {{item.key}}
+          </div>
+          <div class="item-note">
+            {{item.waza}}
+          </div>
         </div>
+        <ion-icon class="item-arrow" name="arrow-dropright"></ion-icon>
+        <!-- <img class="item-img" src="assets/imgs/harai-goshi.jpg"> -->
       </button>
     </div>
   </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.name}}</b>
-  </div>
+  <ion-searchbar [(ngModel)]="myInput"></ion-searchbar>
 </ion-content>
