@@ -1,74 +1,55 @@
-page-technique {
-
+.technique-title {
+    color: #646464;
+    padding: 5% 10%;
+    p:first-child {
+        font-size: 2.2em;
+        margin: 0;
+    }
+    p:last-child {
+        margin: 0;
+        font-size: 1.2em;
+        font-weight: 100;
+    }
 }
 
-page-technique > ion-header {
+.technique__bg {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
     width: 100%;
-    height:255px;
-    overflow: hidden;
-    text-align: right;
-    background-image: url("../assets/imgs/header-40.jpg");    
-}
-
-page-technique > ion-header > ion-title {
-    padding-top: 10%;
-}
-
-page-technique > ion-header::before {
-    border-radius: 100%;
-    position: absolute;
-    background: white;
-    right: -13%;
-    left: -13%;
-    top: 85%;
-    content: '';
-    bottom: -50%;
-}
-
-page-technique > ion-header > ion-title > div.toolbar-title-md {
-    color: white;
-    text-align: right;
-    padding: 0% 5%;
-}
-
-page-technique > ion-header > ion-title > div.toolbar-title-md > p:first-child {
-    font-size: 2.2em;
-    margin: 0;
-}
-
-page-technique > ion-header > ion-title > div.toolbar-title-md > p:last-child {
-    margin: 0;
-    font-size: 1.2em;
-    font-weight: 100;
+    height: 20%;
+    background-color: #958987;
+    transform: skewY(-6deg);
+    transform-origin: top left;
 }
 
 ion-app.md [padding] .scroll-content {
     padding: 0;
 }
 
-.technique-title, .technique-description, .technique-videos {
+.technique-box, .technique-description, .technique-videos {
     padding: 5% 10% 0% 10%;
 }
 
-.technique-title, .technique-description, .technique-videos {
+.technique-box, .technique-description, .technique-videos {
     padding: 5% 10%;
 
     h1 {
-        font-size: 2em;
+        font-size: em;
         color: rgba(100,100,100,80);
         margin-bottom: 0.8em;
     }
 }
 
-.technique-title {
+.technique-box {
     width: 100%;
     display: flex;
     flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
 }
 
-.technique-title > p {
+.technique-box > p {
     width: 75%;
     text-align: center;
     margin: 0;
@@ -77,11 +58,6 @@ ion-app.md [padding] .scroll-content {
 .translated-band {
     background-color: #EEEEEE;
     padding: 2%;
-}
-
-.info-box {
-    // background-color: #E3F2FD;
-    // padding: 10%;
 }
 
 .info-box > .info-header {
@@ -98,12 +74,10 @@ ion-app.md [padding] .scroll-content {
 }
 
 .info-translated {
-    // margin: 1em 0em;
     border: 5px solid #BBDEFB;
 }
 
 .info-box > .info-translated > p {
-    // border-left: 5px solid #E3F2FD;
     padding: 5%;
     margin: 0;
 }
