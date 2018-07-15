@@ -18,6 +18,7 @@
     <img class="budo-logo" src="assets/imgs/budo.png">
   </div>
   <div class="single-bar"></div>
+  <h2>Techniques</h2>
   <ion-searchbar [(ngModel)]="myInput"></ion-searchbar>
   <ion-list>
     <div *ngFor="let item of techniques | async | search: myInput| belt: belt | sort: {property: column, order: order} | reverse: reverse">
