@@ -58,7 +58,7 @@ ion-buttons > button {
 
 .single-bar {
     width: 10%;
-    border: 5px solid black;
+    border: 5px solid #2a2a2a;
     margin: 0 auto;
     margin-top: 40%;
     margin-bottom: 30%;
@@ -81,23 +81,6 @@ ion-buttons > button {
 
 .item-note {
     color: #5a5a5a;
-}
-
-.item-circle {
-    width: 1em;
-    height: 1em;
-    line-height: 1em;
-    border-radius: 25px;
-    border-width: 2px;
-    border-style: solid;
-    // background-color: blue;
-    margin: 0 8%;
-}
-
-.item-img {
-    width: 50%;
-    position: relative;
-    right: -15%;
 }
 
 .item-arrow {
