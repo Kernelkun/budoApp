@@ -21,7 +21,8 @@
   <h2>Techniques</h2>
   <ion-searchbar [(ngModel)]="myInput"></ion-searchbar>
   <ion-list>
-    <div *ngFor="let item of techniques | async | search: myInput| belt: belt | sort: {property: column, order: order} | reverse: reverse">
+    <div class="item" [ngStyle]="{'border-bottom': '3px solid '+item.belt}"
+    *ngFor="let item of techniques | async | search: myInput| belt: belt | sort: {property: column, order: order} | reverse: reverse">
       <button ion-item (click)="itemTapped($event, item)">
         <div class="item-box">
           <div class="item-key">
