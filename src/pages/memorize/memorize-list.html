@@ -1,17 +1,16 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Memorize
-    </ion-title>
-        <ion-buttons end>
-          <button ion-button icon-only (click)="reverseOrder()">
-            <ion-icon name="swap"></ion-icon>
-          </button>
-        </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="reverseOrder()">
+        <ion-icon name="swap"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="base">
+  <div class="technique__bg"></div>
+  <h1>Memorize</h1>
   <ion-list>
     <div *ngFor="let item of belts | async | reverse: reverse">
       <button ion-item (click)="openPage(item.belt)">
